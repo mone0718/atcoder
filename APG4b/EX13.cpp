@@ -10,7 +10,7 @@ using namespace std;
 int main() {
   int N, sum, mean;
   cin >> N;
-  vector<int> a(N); //vector<型> 配列の名前(要素数,初期値)
+  vector<int> a(N); //vector<型> 配列の名前(要素数,初期値);
   
   for (int i = 0; i < N; i++){
     cin >> a.at(i); //配列のi番目に入れる
