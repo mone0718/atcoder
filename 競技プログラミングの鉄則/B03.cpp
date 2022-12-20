@@ -10,6 +10,7 @@ int main() {
     cin >> A.at(i);
   }
 
+  //jはi+1~N,kはj+1~Nの範囲でループとすると((i != j) && (j != k) && (k != i))がいらなくなる
   for (int i = 0; i < N; i++) {
     for (int j = 0; j < N; j++) {
       for (int k = 0; k < N; k++) {
