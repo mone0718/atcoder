@@ -13,6 +13,11 @@
 3.ベースケースの実装
  */
 
+/*
+N 組織の数
+p1 p2 p3 … pN−1 i番の親組織がpi
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -20,15 +25,25 @@ using namespace std;
 // childrenは組織の関係を表す2次元配列(参照渡し)
 int count_report_num(vector<vector<int>> &children, int x) {
     // (ここに追記して再帰関数を実装する)
+
+    //べースケース:組織0しか存在しない時 提出される報告書は1枚
     if (children.at(x).size() == 0){
         return 1;
     }
 
+    //再帰ステップ
     int count = 0;
+    //children.at(x)の要素を取り出しながらループ
     for (int c : children.at(x)){
-        int receive_count = count_report_num(children,c);
+
+        //受け取る報告書の枚数 = 子組織が提出する枚数
+        int receive_count = count_report_num(children, c);
+
+        //受け取った報告書の総数:全ての子組織から受け取った枚数
         count += receive_count;
+
     }
+    //提出する枚数 = 全ての子組織から受け取った枚数 + 1
     return count + 1;
 
 }
